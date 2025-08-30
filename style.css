@@ -17,6 +17,11 @@ header {
   position: sticky;
   top: 0;
   z-index: 1000;
+  transition: box-shadow 0.3s ease;
+}
+
+header.sticky {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 header .logo {
@@ -100,6 +105,7 @@ header nav ul li a:hover {
 .btn:hover {
   background-color: #ffab00;
   color: white;
+  transform: scale(1.05);
 }
 
 /* Sections */
@@ -153,8 +159,9 @@ header nav ul li a:hover {
 }
 
 .card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  transform: scale(1.05) translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Section Images */
@@ -183,8 +190,77 @@ input, textarea {
 }
 
 button[type="submit"] {
-/* Sticky header shadow */
-header.sticky {
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  transition: box-shadow 0.3s ease;
+  padding: 10px;
+  border: none;
+  background-color: #004d40;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: #00695c;
+}
+
+/* Footer */
+footer {
+  background-color: #004d40;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Back-to-top button */
+#back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #004d40;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none;
+  z-index: 100;
+  transition: 0.3s;
+}
+
+#back-to-top:hover {
+  background-color: #00695c;
+}
+
+/* Animation keyframes */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animate when in viewport */
+.animate.show {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.8s ease;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  header nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
 }
