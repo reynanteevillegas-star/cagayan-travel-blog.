@@ -1,33 +1,74 @@
-/* Reset some default browser styles */
+/* General */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Arial', sans-serif;
+  font-family: Arial, sans-serif;
 }
 
-/* Body */
-body {
-  line-height: 1.6;
-  background-color: #fdf6f0;
-  color: #333;
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hero Section */
+.hero-banner {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/hero.png');
+  background-size: cover;
+  background-position: center;
+  padding: 0 20px;
+}
+
+.hero-banner h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  animation: fadeInDown 1.5s ease;
+}
+
+.hero-banner p {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  animation: fadeInUp 1.5s ease;
+}
+
+.hero-banner .btn {
+  font-size: 1.1rem;
+  padding: 12px 25px;
+}
+
+/* Hero Animations */
+@keyframes fadeInDown {
+  0% { opacity: 0; transform: translateY(-30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 /* Header */
 header {
+  position: sticky;
+  top: 0;
+  background-color: #ffffffcc;
+  backdrop-filter: blur(10px);
+  z-index: 999;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 50px;
-  background-color: rgba(255, 255, 255, 0.95);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 10px 20px;
 }
 
 header .logo {
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: bold;
 }
 
@@ -37,177 +78,110 @@ header nav ul {
 }
 
 header nav ul li {
-  margin-left: 20px;
+  margin: 0 10px;
 }
 
 header nav ul li a {
-  text-decoration: none;
   color: #333;
-  font-weight: 500;
-  transition: 0.3s;
+  padding: 8px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s, transform 0.2s;
 }
 
 header nav ul li a:hover {
-  color: #f08000;
-}
-
-/* Hero Banner */
-.hero-banner {
-  background: url('images/hero.png') no-repeat center center/cover;
-  height: 80vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: white;
-  position: relative;
-}
-
-.hero-banner::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.4);
-}
-
-.hero-banner h1,
-.hero-banner p,
-.hero-banner .btn {
-  position: relative;
-  z-index: 1;
-}
-
-.hero-banner h1 {
-  font-size: 3rem;
-  margin-bottom: 10px;
-}
-
-.hero-banner p {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-}
-
-.hero-banner .btn {
-  padding: 12px 25px;
   background-color: #f08000;
   color: white;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 5px;
-  transition: 0.3s;
+  transform: translateY(-2px);
 }
 
-.hero-banner .btn:hover {
-  background-color: #d36e00;
+/* Section Images */
+.section-image {
+  width: 100%;
+  max-width: 900px;
+  margin: 10px auto 20px auto;
+  display: block;
+  border-radius: 10px;
 }
 
-/* Section Titles */
-.section {
-  padding: 60px 20px;
-  max-width: 1200px;
-  margin: auto;
-}
-
-.section h2 {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 40px;
-  color: #f08000;
-}
-
-/* Destination Cards */
+/* Cards */
 .cards {
   display: flex;
   flex-wrap: wrap;
+  gap: 20px;
   justify-content: center;
-  gap: 30px;
 }
 
-.card {
+.cards .card {
   background-color: white;
   border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  width: 300px;
   overflow: hidden;
-  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   transition: transform 0.3s, box-shadow 0.3s;
+  width: 300px;
+  text-align: center;
+  padding-bottom: 20px;
 }
 
-.card img {
+.cards .card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.cards .card img {
   width: 100%;
   height: 200px;
   object-fit: cover;
+  transition: transform 0.5s;
 }
 
-.card h3 {
-  margin: 15px 0;
-  color: #333;
+.cards .card:hover img {
+  transform: scale(1.1);
 }
 
-.card p {
-  padding: 0 15px 15px;
+.cards .card h3 {
+  margin: 10px 0;
+}
+
+.cards .card p {
+  padding: 0 10px;
   font-size: 0.95rem;
-  color: #555;
 }
 
-.card .btn {
-  display: inline-block;
-  margin-bottom: 15px;
-  padding: 10px 20px;
+/* Buttons */
+.btn {
   background-color: #f08000;
   color: white;
+  padding: 10px 18px;
+  border-radius: 8px;
   text-decoration: none;
-  border-radius: 5px;
-  transition: 0.3s;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
-.card .btn:hover {
-  background-color: #d36e00;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-}
-
-/* Food & Culture Images */
-.section img {
-  border-radius: 10px;
-  margin-bottom: 20px;
+.btn:hover {
+  background-color: #d96c00;
+  transform: translateY(-3px);
 }
 
 /* Contact Form */
 .contact form {
   max-width: 600px;
-  margin: auto;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
+  gap: 10px;
 }
 
 .contact input, .contact textarea {
-  padding: 12px;
-  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 6px;
   border: 1px solid #ccc;
-  border-radius: 5px;
 }
 
 .contact button {
-  padding: 12px;
-  background-color: #f08000;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-weight: bold;
   cursor: pointer;
-  transition: 0.3s;
-}
-
-.contact button:hover {
-  background-color: #d36e00;
+  border: none;
 }
 
 /* Footer */
@@ -215,23 +189,10 @@ footer {
   background-color: #333;
   color: white;
   text-align: center;
-  padding: 25px 0;
-  margin-top: 40px;
+  padding: 20px 10px;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-  }
-  header nav ul {
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 10px;
-  }
-
-  .cards {
-    flex-direction: column;
-    align-items: center;
-  }
+footer .footer-content {
+  max-width: 900px;
+  margin: 0 auto;
 }
