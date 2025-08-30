@@ -1,156 +1,123 @@
-/* General */
-body {
+/* Reset */
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  background-color: #f4f4f4;
+  background: #f9f9f9;
   color: #333;
 }
 
-/* Hero Banner */
-.hero-banner {
-  background: url('images/hero.jpeg') no-repeat center center/cover;
-  color: #fff;
-  text-align: center;
-  padding: 120px 20px;
-  position: relative;
-  text-shadow: 2px 2px 4px #000;
-}
-.hero-banner .btn {
-  display: inline-block;
-  padding: 12px 30px;
-  background-color: #ff7f50;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 5px;
-  margin-top: 20px;
-  animation: pulse 1.5s infinite;
-}
-.hero-banner .author {
-  margin-top: 15px;
-  font-size: 14px;
-  color: #fff;
-}
-
-/* Button Pulse Animation */
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
-}
-
-/* Header */
+/* Navigation */
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #333;
-  padding: 10px 20px;
-}
-header .logo {
-  color: #fff;
-  font-weight: bold;
-}
-header nav ul {
-  list-style: none;
-  display: flex;
-  margin: 0;
-  padding: 0;
-}
-header nav ul li {
-  margin-left: 15px;
-}
-header nav ul li a {
-  color: #fff;
-  text-decoration: none;
+  background: #333;
+  padding: 10px 0;
 }
 
-/* Sections */
-.section {
-  padding: 60px 20px;
-  text-align: center;
-}
-.cards {
+nav {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
 }
-.card {
-  background-color: #fff;
-  padding: 15px;
-  width: 300px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
 }
+
+nav a:hover {
+  color: #ff9800;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  overflow: hidden;
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(70%);
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.hero-text .btn {
+  padding: 10px 20px;
+  background: #ff9800;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Content Sections */
+main {
+  padding: 20px;
+}
+
+h2 {
+  margin-bottom: 15px;
+  color: #222;
+}
+
+/* Cards */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  padding: 15px;
+  flex: 1;
+  min-width: 250px;
+}
+
 .card img {
   width: 100%;
-  border-radius: 10px;
-}
-.card .btn {
-  display: inline-block;
-  padding: 8px 20px;
-  background-color: #333;
-  color: #fff;
-  text-decoration: none;
-  margin-top: 10px;
-  border-radius: 5px;
+  border-radius: 8px;
+  margin-bottom: 10px;
 }
 
-/* Food Section */
-.food-section {
-  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('images/food.jpg') no-repeat center center/cover;
-  color: #fff;
-  padding: 60px 20px;
-  border-radius: 10px;
-  margin-bottom: 40px;
-  text-shadow: 1px 1px 3px #000;
-}
-
-/* Culture Section */
-.culture-section {
-  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('images/culture.jpeg') no-repeat center center/cover;
-  color: #fff;
-  padding: 60px 20px;
-  border-radius: 10px;
-  margin-bottom: 40px;
-  text-shadow: 1px 1px 3px #000;
-}
-
-/* Contact Section */
-.contact-section {
-  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('images/contact-bg.jpeg') no-repeat center center/cover;
-  color: #fff;
-  padding: 60px 20px;
-  border-radius: 10px;
-  text-align: center;
-  text-shadow: 1px 1px 3px #000;
-}
-.contact-section form input,
-.contact-section form textarea {
-  width: 80%;
-  max-width: 400px;
-  margin: 10px 0;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  background-color: rgba(255,255,255,0.9);
-  color: #000;
-}
-.contact-section form button {
-  padding: 10px 25px;
-  background-color: #ff7f50;
-  border: none;
-  color: #fff;
-  border-radius: 5px;
-  cursor: pointer;
+.card h3 {
+  margin-bottom: 10px;
 }
 
 /* Footer */
 footer {
-  background-color: #333;
-  color: #fff;
+  background: #333;
+  color: white;
   text-align: center;
   padding: 15px 0;
-  margin-top: 40px;
+  margin-top: 20px;
 }
