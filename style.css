@@ -1,8 +1,9 @@
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
 
+/* Body */
 body {
-  background-color: #f9f9f9;
-  scroll-behavior: smooth; /* smooth scrolling */
+  background: linear-gradient(to bottom, #f9f9f9, #e0f2f1); /* light gray to soft teal */
+  scroll-behavior: smooth;
 }
 
 /* Buttons */
@@ -17,7 +18,7 @@ body {
 }
 .btn:hover {
   background-color: #e65100;
-  transform: scale(1.05); /* subtle pop effect */
+  transform: scale(1.05);
 }
 
 /* Header */
@@ -32,14 +33,8 @@ header {
   z-index:1000;
   transition: background-color 0.3s;
 }
-header:hover {
-  background-color: rgba(0,0,0,0.85);
-}
-header .logo {
-  color:white;
-  font-size:20px;
-  font-weight:bold;
-}
+header:hover { background-color: rgba(0,0,0,0.85); }
+header .logo { color:white; font-size:20px; font-weight:bold; }
 header nav ul { list-style:none; display:flex; gap:15px; }
 header nav ul li a { color:white; text-decoration:none; transition:0.3s; }
 header nav ul li a:hover { color:#f57c00; }
@@ -69,16 +64,17 @@ header nav ul li a:hover { color:#f57c00; }
   margin-bottom: 30px;
   animation: slideUp 1.5s ease-out;
 }
-.hero-banner .btn {
-  font-size: 18px;
-  animation: popIn 1.8s ease-out;
-}
+.hero-banner .btn { font-size: 18px; animation: popIn 1.8s ease-out; }
 
 /* Sections */
 .section {
-  padding:60px 20px;
-  text-align:center;
-  background-color: #f9f9f9;
+  padding: 60px 20px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 10px;
+  margin: 20px auto;
+  max-width: 1200px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
   opacity: 0;
   transform: translateY(20px);
   animation: fadeUp 1s forwards;
@@ -97,8 +93,8 @@ header nav ul li a:hover { color:#f57c00; }
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   animation: fadeUp 1s forwards;
 }
-.card img { width:100%; height:200px; object-fit:cover; transition: transform 0.5s ease; }
-.card:hover img { transform: scale(1.1); }
+.card img { width:100%; height:200px; object-fit:cover; transition: transform 0.5s ease, box-shadow 0.5s ease; }
+.card:hover img { transform: scale(1.1); box-shadow: 0 10px 20px rgba(0,0,0,0.25); }
 .card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
 .card h3 { margin:15px; font-size:22px; color:#333; }
 .card p { margin:0 15px 15px 15px; color:#555; }
@@ -106,11 +102,18 @@ header nav ul li a:hover { color:#f57c00; }
 
 /* Section Images */
 .section img {
-  width:80%; max-width:600px; margin:20px 0;
+  width:80%;
+  max-width:600px;
+  margin:20px 0;
   border-radius:10px;
   object-fit:cover;
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
   animation: fadeIn 1.2s ease-out;
+}
+.section img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.25);
 }
 
 /* Forms */
@@ -123,19 +126,7 @@ form button:hover { background-color:#e65100; transform: scale(1.05); }
 footer { text-align:center; padding:20px; background-color:#222; color:white; font-size:14px; }
 
 /* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; } 
-  to { opacity: 1; }
-}
-@keyframes slideUp {
-  from { transform: translateY(20px); opacity:0; }
-  to { transform: translateY(0); opacity:1; }
-}
-@keyframes popIn {
-  from { transform: scale(0); opacity:0; }
-  to { transform: scale(1); opacity:1; }
-}
-@keyframes fadeUp {
-  from { transform: translateY(20px); opacity:0; }
-  to { transform: translateY(0); opacity:1; }
-}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { transform: translateY(20px); opacity:0; } to { transform: translateY(0); opacity:1; } }
+@keyframes popIn { from { transform: scale(0); opacity:0; } to { transform: scale(1); opacity:1; } }
+@keyframes fadeUp { from { transform: translateY(20px); opacity:0; } to { transform: translateY(0); opacity:1; } }
