@@ -1,33 +1,237 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Palanan, Isabela - Cagayan Valley Blog</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+/* Reset some default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
 
-  <header>
-    <div class="logo">🌄 Cagayan Valley Travels</div>
-    <nav><ul><li><a href="index.html">Home</a></li></ul></nav>
-  </header>
+/* Body */
+body {
+  line-height: 1.6;
+  background-color: #fdf6f0;
+  color: #333;
+}
 
-  <main class="post">
-    <article>
-      <h1>Palanan, Isabela Adventure</h1>
-      <p class="date">Published on August 30, 2025</p>
-      <img src="images/palanan.jpg" alt="Palanan, Isabela">
-      <p>Palanan is a hidden coastal gem, accessible by plane or boat. Rich in biodiversity, pristine beaches, and history from World War II.</p>
-      <h2>Travel Tips</h2>
-      <ul>
-        <li>Best time to visit: dry season (November to May).</li>
-        <li>Pack light and bring essentials if traveling by boat.</li>
-        <li>Respect local communities and nature.</li>
-      </ul>
-      <a href="index.html" class="btn">Back</a>
-    </article>
-  </main>
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background-color: rgba(255, 255, 255, 0.95);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
 
-</body>
-</html>
+header .logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+header nav ul {
+  display: flex;
+  list-style: none;
+}
+
+header nav ul li {
+  margin-left: 20px;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+header nav ul li a:hover {
+  color: #f08000;
+}
+
+/* Hero Banner */
+.hero-banner {
+  background: url('images/hero.png') no-repeat center center/cover;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.hero-banner::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+}
+
+.hero-banner h1,
+.hero-banner p,
+.hero-banner .btn {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-banner h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.hero-banner p {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.hero-banner .btn {
+  padding: 12px 25px;
+  background-color: #f08000;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.hero-banner .btn:hover {
+  background-color: #d36e00;
+}
+
+/* Section Titles */
+.section {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.section h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #f08000;
+}
+
+/* Destination Cards */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  width: 300px;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card h3 {
+  margin: 15px 0;
+  color: #333;
+}
+
+.card p {
+  padding: 0 15px 15px;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.card .btn {
+  display: inline-block;
+  margin-bottom: 15px;
+  padding: 10px 20px;
+  background-color: #f08000;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.card .btn:hover {
+  background-color: #d36e00;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* Food & Culture Images */
+.section img {
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+/* Contact Form */
+.contact form {
+  max-width: 600px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact input, .contact textarea {
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.contact button {
+  padding: 12px;
+  background-color: #f08000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact button:hover {
+  background-color: #d36e00;
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 25px 0;
+  margin-top: 40px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+  }
+  header nav ul {
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+  }
+
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+}
