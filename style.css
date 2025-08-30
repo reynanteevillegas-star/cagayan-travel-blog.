@@ -183,3 +183,8 @@ input, textarea {
 }
 
 button[type="submit"] {
+/* Sticky header shadow */
+header.sticky {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.3s ease;
+}
